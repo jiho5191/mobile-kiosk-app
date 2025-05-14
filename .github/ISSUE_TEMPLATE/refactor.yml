@@ -1,0 +1,16 @@
+name: 🧹 Refactor
+description: 코드 구조 개선이 필요한 항목을 정리해주세요.
+title: '[refactor] '
+labels: ['🧹 cleanup', 'refactor']
+body:
+  - type: textarea
+    id: target
+    attributes:
+      label: 리팩토링 대상
+      description: 어떤 파일 또는 로직을 리팩토링하나요?
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: 리팩토링 이유
+      description: 리팩토링이 필요한 이유를 설명해주세요.

@@ -1,0 +1,22 @@
+name: 🔧 Config Change
+description: 환경 설정, 의존성, 빌드 관련 변경 사항을 공유해주세요.
+title: "[config] "
+labels: ["🔧 config"]
+body:
+  - type: textarea
+    id: file
+    attributes:
+      label: 설정 파일
+      description: 어떤 설정 파일이 변경되었나요? (예: gradle, lint 등)
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: 변경 이유
+      description: 이 변경이 필요한 이유를 설명해주세요.
+
+  - type: textarea
+    id: note
+    attributes:
+      label: 참고 사항
+      description: 팀원에게 공유해야 할 추가 정보가 있다면 작성해주세요.

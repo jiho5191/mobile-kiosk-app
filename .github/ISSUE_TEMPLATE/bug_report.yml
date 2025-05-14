@@ -1,0 +1,16 @@
+name: 🐞 Bug Report
+description: 앱 사용 중 발생한 버그를 신고해주세요.
+title: '[bug] '
+labels: ['🐞 bug']
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: 버그 설명
+      description: 어떤 현상이 일어났는지 적어주세요.
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 작업 목표
+      description: 원래 기대했던 동작은 무엇인가요?
