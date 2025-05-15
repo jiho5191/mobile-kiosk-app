@@ -1,5 +1,6 @@
 package com.example.mobile_team10
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import androidx.activity.enableEdgeToEdge
@@ -39,6 +40,12 @@ class MainActivity : AppCompatActivity() {
                 else -> null
             }
         }.attach()
+
+        // 장바구니 버튼 클릭 시 MainActivity2로 이동
+        binding.cartButton.setOnClickListener {
+            val intent = Intent(this, MainActivity2::class.java)
+            startActivity(intent)
+        }
     }
 }
 
