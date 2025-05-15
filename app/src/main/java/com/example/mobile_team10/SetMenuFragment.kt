@@ -1,59 +1,86 @@
 package com.example.mobile_team10
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
+import com.example.mobile_team10.CartItem
+import com.example.mobile_team10.CartManager
+import com.example.mobile_team10.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [SetMenuFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SetMenuFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_set_menu, container, false)
-    }
+        val view = inflater.inflate(R.layout.fragment_set_menu, container, false)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SetMenuFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SetMenuFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+        // dp to px 변환 함수
+        fun Int.dpToPx(): Int = (this * requireContext().resources.displayMetrics.density).toInt()
+
+        fun showConfirmationDialog(name: String, price: Int, drawable1: Int, drawable2: Int) {
+            val linearLayout = LinearLayout(requireContext()).apply {
+                orientation = LinearLayout.HORIZONTAL
+                gravity = Gravity.CENTER_VERTICAL
+                val padding = 16.dpToPx()
+                setPadding(padding, padding, padding, padding)
             }
+
+            val imageView1 = ImageView(requireContext()).apply {
+                setImageResource(drawable1)
+                layoutParams = LinearLayout.LayoutParams(140.dpToPx(), 140.dpToPx())
+                scaleType = ImageView.ScaleType.CENTER_CROP
+            }
+
+            val plusTextView = TextView(requireContext()).apply {
+                text = "+"
+                textSize = 24f
+                setPadding(20.dpToPx(), 0, 20.dpToPx(), 0)
+                gravity = Gravity.CENTER
+            }
+
+            val imageView2 = ImageView(requireContext()).apply {
+                setImageResource(drawable2)
+                layoutParams = LinearLayout.LayoutParams(140.dpToPx(), 140.dpToPx())
+                scaleType = ImageView.ScaleType.CENTER_CROP
+            }
+
+            linearLayout.addView(imageView1)
+            linearLayout.addView(plusTextView)
+            linearLayout.addView(imageView2)
+
+            AlertDialog.Builder(requireContext())
+                .setTitle(name)
+                .setMessage("가격: $price 원")
+                .setView(linearLayout)
+                .setPositiveButton("추가") { dialog, _ ->
+                    CartManager.addItem(CartItem(name, price))
+                    Toast.makeText(requireContext(), "$name 이(가) 장바구니에 담겼습니다.", Toast.LENGTH_SHORT).show()
+                    dialog.dismiss()
+                }
+                .setNegativeButton("취소") { dialog, _ -> dialog.dismiss() }
+                .setCancelable(false)
+                .show()
+        }
+
+        val set1 = view.findViewById<LinearLayout>(R.id.set1)
+        set1.setOnClickListener {
+            showConfirmationDialog("만두전골 + 참치주먹밥", 20000, R.drawable.mandoo, R.drawable.jumukbab)
+        }
+
+        val set2 = view.findViewById<LinearLayout>(R.id.set2)
+        set2.setOnClickListener {
+            showConfirmationDialog("오코노미야키 + 과일화채", 20000, R.drawable.okonomiyaki, R.drawable.hwachae)
+        }
+
+        return view
     }
 }

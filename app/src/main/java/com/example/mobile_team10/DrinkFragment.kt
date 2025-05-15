@@ -1,5 +1,7 @@
 package com.example.mobile_team10
 
+import androidx.appcompat.app.AlertDialog
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -34,7 +36,42 @@ class DrinkFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_drink, container, false)
+        val view = inflater.inflate(R.layout.fragment_drink, container, false)
+
+        // Find views by IDs
+        val waterView = view.findViewById<View>(R.id.water)
+        val drinkView = view.findViewById<View>(R.id.drink)
+
+        // Set click listeners with dialog confirmation
+        waterView?.setOnClickListener {
+            AlertDialog.Builder(requireContext())
+                .setTitle("물")
+                .setMessage("가격: 1,000원")
+                .setIcon(R.drawable.water)
+                .setPositiveButton("추가") { dialog, _ ->
+                    CartManager.addItem(CartItem("물", 1000))
+                    android.widget.Toast.makeText(requireContext(), "물을 장바구니에 담았습니다.", android.widget.Toast.LENGTH_SHORT).show()
+                    dialog.dismiss()
+                }
+                .setNegativeButton("취소") { dialog, _ -> dialog.dismiss() }
+                .show()
+        }
+
+        drinkView?.setOnClickListener {
+            AlertDialog.Builder(requireContext())
+                .setTitle("콜라/사이다")
+                .setMessage("가격: 2,000원")
+                .setIcon(R.drawable.drink)
+                .setPositiveButton("추가") { dialog, _ ->
+                    CartManager.addItem(CartItem("콜라/사이다", 2000))
+                    android.widget.Toast.makeText(requireContext(), "콜라/사이다를 장바구니에 담았습니다.", android.widget.Toast.LENGTH_SHORT).show()
+                    dialog.dismiss()
+                }
+                .setNegativeButton("취소") { dialog, _ -> dialog.dismiss() }
+                .show()
+        }
+
+        return view
     }
 
     companion object {
