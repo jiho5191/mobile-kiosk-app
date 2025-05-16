@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
 
-    <TextView
-        android:id="@+id/orderHistoryText"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="주문 내역 로딩 중..."
-        android:textSize="16sp" />
-</ScrollView>
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:fitsSystemWindows="true">
+
+        <TextView
+            android:id="@+id/orderHistoryText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="주문 내역 로딩 중..."
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"/>
+    </ScrollView>
+</LinearLayout>
