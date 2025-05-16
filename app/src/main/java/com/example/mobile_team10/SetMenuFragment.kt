@@ -63,7 +63,7 @@ class SetMenuFragment : Fragment() {
                 .setView(linearLayout)
                 .setPositiveButton("추가") { dialog, _ ->
                     CartManager.addItem(CartItem(name, price))
-                    Toast.makeText(requireContext(), "$name 이(가) 장바구니에 담겼습니다.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "$name 을(를) 장바구니에 담았습니다.", Toast.LENGTH_SHORT).show()
                     dialog.dismiss()
                 }
                 .setNegativeButton("취소") { dialog, _ -> dialog.dismiss() }
@@ -73,7 +73,7 @@ class SetMenuFragment : Fragment() {
 
         val set1 = view.findViewById<LinearLayout>(R.id.set1)
         set1.setOnClickListener {
-            showConfirmationDialog("만두전골 + 참치주먹밥", 20000, R.drawable.mandoo, R.drawable.jumukbab)
+            showConfirmationDialog("만두전골 + 참치주먹밥", 23000, R.drawable.mandoo, R.drawable.jumukbab)
         }
 
         val set2 = view.findViewById<LinearLayout>(R.id.set2)

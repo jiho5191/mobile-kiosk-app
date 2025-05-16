@@ -21,7 +21,11 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        title="🎈 컴공 주점 🎈"
+        supportActionBar?.apply {
+            setDisplayUseLogoEnabled(true)
+            setDisplayShowHomeEnabled(true)
+            setLogo(R.drawable.logo)
+        }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)

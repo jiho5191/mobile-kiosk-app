@@ -12,6 +12,7 @@ import android.view.ViewGroup
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+private const val ARG_PARAM3 = "param3"
 
 /**
  * A simple [Fragment] subclass.
@@ -22,12 +23,14 @@ class DrinkFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var param3: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
+            param3 = it.getString(ARG_PARAM3)
         }
     }
 
@@ -40,7 +43,8 @@ class DrinkFragment : Fragment() {
 
         // Find views by IDs
         val waterView = view.findViewById<View>(R.id.water)
-        val drinkView = view.findViewById<View>(R.id.drink)
+        val colaView = view.findViewById<View>(R.id.cola)
+        val ciderView = view.findViewById<View>(R.id.cider)
 
         // Set click listeners with dialog confirmation
         waterView?.setOnClickListener {
@@ -57,14 +61,28 @@ class DrinkFragment : Fragment() {
                 .show()
         }
 
-        drinkView?.setOnClickListener {
+        colaView?.setOnClickListener {
             AlertDialog.Builder(requireContext())
-                .setTitle("콜라/사이다")
+                .setTitle("콜라")
                 .setMessage("가격: 2,000원")
-                .setIcon(R.drawable.drink)
+                .setIcon(R.drawable.cola)
                 .setPositiveButton("추가") { dialog, _ ->
-                    CartManager.addItem(CartItem("콜라/사이다", 2000))
-                    android.widget.Toast.makeText(requireContext(), "콜라/사이다를 장바구니에 담았습니다.", android.widget.Toast.LENGTH_SHORT).show()
+                    CartManager.addItem(CartItem("콜라", 2000))
+                    android.widget.Toast.makeText(requireContext(), "콜라를 장바구니에 담았습니다.", android.widget.Toast.LENGTH_SHORT).show()
+                    dialog.dismiss()
+                }
+                .setNegativeButton("취소") { dialog, _ -> dialog.dismiss() }
+                .show()
+        }
+
+        ciderView?.setOnClickListener {
+            AlertDialog.Builder(requireContext())
+                .setTitle("사이다")
+                .setMessage("가격: 2,000원")
+                .setIcon(R.drawable.cider)
+                .setPositiveButton("추가") { dialog, _ ->
+                    CartManager.addItem(CartItem("사이다", 2000))
+                    android.widget.Toast.makeText(requireContext(), "사이다를 장바구니에 담았습니다.", android.widget.Toast.LENGTH_SHORT).show()
                     dialog.dismiss()
                 }
                 .setNegativeButton("취소") { dialog, _ -> dialog.dismiss() }
@@ -81,15 +99,17 @@ class DrinkFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
+         * @param param3 Parameter 3.
          * @return A new instance of fragment DrinkFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(param1: String, param2: String, param3: String) =
             DrinkFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
+                    putString(ARG_PARAM3, param3)
                 }
             }
     }
