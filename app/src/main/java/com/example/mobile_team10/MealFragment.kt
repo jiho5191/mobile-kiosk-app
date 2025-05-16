@@ -45,7 +45,7 @@ class MealFragment : Fragment() {
             builder.setIcon(imageResId)
             builder.setPositiveButton("추가") { dialog, _ ->
                 CartManager.addItem(CartItem(name, price))
-                Toast.makeText(requireContext(), "$name 이(가) 장바구니에 담았습니다", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "$name 을(를) 장바구니에 담았습니다", Toast.LENGTH_SHORT).show()
                 dialog.dismiss()
             }
             builder.setNegativeButton("취소") { dialog, _ ->

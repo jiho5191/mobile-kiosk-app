@@ -30,14 +30,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:text="만두전골"
                 android:layout_marginTop="8dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="14sp"
+                android:textColor="#757575"
+                style="@style/TinoFont"
                 android:text="20,000원" />
         </LinearLayout>
         <LinearLayout
@@ -59,14 +61,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:text="오코노미야키"
                 android:layout_marginTop="8dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="14sp"
+                android:textColor="#757575"
+                style="@style/TinoFont"
                 android:text="13,000원" />
         </LinearLayout>
         <LinearLayout
@@ -88,14 +92,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:text="두부김치"
                 android:layout_marginTop="8dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="14sp"
+                android:textColor="#757575"
+                style="@style/TinoFont"
                 android:text="12,000원" />
         </LinearLayout>
         <LinearLayout
@@ -117,14 +123,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:text="대패숙주볶음"
                 android:layout_marginTop="8dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="14sp"
+                android:textColor="#757575"
+                style="@style/TinoFont"
                 android:text="15,000원" />
         </LinearLayout>
         <LinearLayout
@@ -146,14 +154,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:text="참치주먹밥"
                 android:layout_marginTop="8dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="14sp"
+                android:textColor="#757575"
+                style="@style/TinoFont"
                 android:text="4,000원" />
         </LinearLayout>
         <LinearLayout
@@ -175,14 +185,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:text="과일화채"
                 android:layout_marginTop="8dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="14sp"
+                android:textColor="#757575"
+                style="@style/TinoFont"
                 android:text="8,000원" />
         </LinearLayout>
     </GridLayout>
