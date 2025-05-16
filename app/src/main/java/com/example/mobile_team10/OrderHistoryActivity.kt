@@ -9,6 +9,7 @@ class OrderHistoryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_order_history)
+        title="주문 내역"
 
         val historyText = findViewById<TextView>(R.id.orderHistoryText)
 

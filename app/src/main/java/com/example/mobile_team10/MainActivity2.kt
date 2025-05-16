@@ -45,6 +45,7 @@ class MainActivity2 : AppCompatActivity() {
                 .setTitle("주문 확인")
                 .setMessage("총 금액은 ${total}원입니다.\n주문하시겠습니까?")
                 .setPositiveButton("예") { dialog, _ ->
+                    OrderManager.addOrder(CartManager.getItems())
                     CartManager.clear()
                     adapter.updateItems(CartManager.getItems().toMutableList())
                     updateTotalPrice()
