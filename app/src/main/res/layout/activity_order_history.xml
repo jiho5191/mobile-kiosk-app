@@ -7,7 +7,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:padding="16dp"
         android:fitsSystemWindows="true">
 
@@ -19,4 +20,14 @@
             android:textSize="16sp"
             android:layout_marginTop="10dp"/>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/totalAmountText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="총 금액: 0원"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="end"
+        android:padding="16dp" />
 </LinearLayout>

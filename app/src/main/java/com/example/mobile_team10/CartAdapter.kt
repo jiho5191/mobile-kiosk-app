@@ -9,7 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 
 class CartAdapter(
     private var items: MutableList<CartItem>,
-    private val onRemoveClick: (CartItem) -> Unit
+    private val onRemoveClick: (CartItem) -> Unit,
+    private val onQuantityChanged: () -> Unit
 ) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
     inner class CartViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -34,7 +35,9 @@ class CartAdapter(
         holder.buttonIncrease.setOnClickListener {
             item.count++
             holder.countText.text = "${item.count}개"
+            onQuantityChanged()
         }
+
         holder.buttonDecrease.setOnClickListener {
             item.count--
             if (item.count == 0) {
@@ -42,6 +45,7 @@ class CartAdapter(
             } else {
                 holder.countText.text = "${item.count}개"
             }
+            onQuantityChanged()
         }
     }
 
