@@ -20,6 +20,7 @@ class MapActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        title="티노랜드 부스 맵"
 
         val booths = listOf(
             R.id.booth_semiconductor,
@@ -32,7 +33,6 @@ class MapActivity : AppCompatActivity() {
             R.id.booth_mechanical,
             R.id.booth_mechanical_design,
             R.id.booth_biochem,
-            R.id.booth_sales
         )
 
         booths.forEach { id ->
