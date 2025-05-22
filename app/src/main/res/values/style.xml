@@ -3,4 +3,5 @@
     <style name="TinoFont" parent="TextAppearance.MaterialComponents.Body1">
         <item name="fontFamily">@font/tino_bold</item>
     </style>
+
 </resources>
